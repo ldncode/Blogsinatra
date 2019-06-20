@@ -6,3 +6,7 @@ require 'sinatra/reloader'
 get '/' do
 	erb "Hello! Original pattern has been modified for me =)"			
 end
+
+get '/new' do
+  erb :new
+end
