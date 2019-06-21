@@ -1,0 +1,10 @@
+<h2>Latest posts</h2><br>
+
+<% @results.each do |post| %>
+ <p> <%= post['content']%> </p><br><br>
+ 
+     <%= post['create_date']%>
+     <br>
+     <a href="/post/<%= post['id']%>">Coments</a>
+ <hr>
+<% end %>

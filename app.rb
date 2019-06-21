@@ -19,7 +19,8 @@ configure do
 end
 
 get '/' do
-	erb "Hello! Original pattern has been modified for me =)"			
+	@results = @db.execute 'select * from Posts order by id desc'
+	erb :index		
 end
 
 get '/new' do
@@ -33,5 +34,8 @@ post '/new' do
   	return erb :new
   end	
 
-  erb "You taped text #{content}"
+   @db.execute 'insert into Posts (content, create_date) values (?, datetime())', [content]
+
+   redirect to '/'
+
 end
